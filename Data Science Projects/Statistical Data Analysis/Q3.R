@@ -1,0 +1,16 @@
+#(a)
+T = c(10,20,30,40,50,60,70,80,90,100,110,120,130,140,150,160,170,180)
+L = c(0.6,1.8,2.9,4,5,6.1,7.9,10.1,10.9,12.7,14.4,16.6,18.1,19.9,21,23.4,24.7,27.8)
+plot(T,L,main = "Scatter Plot", ylab = "Length(cm)", xlab = "Time(min)")
+model = lm(L~T)
+abline(model,col="red")
+par(mfrow = c(2, 2))
+plot(model)
+
+#(b)
+model2 = lm( log(L) ~ log(T) )
+plot(model2)
+
+res = resid(model2)
+plot(res,main = "Residual Plot")
+abline(0,0)
